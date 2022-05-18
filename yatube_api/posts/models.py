@@ -1,4 +1,3 @@
-from tokenize import group
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -39,3 +38,12 @@ class Comment(models.Model):
     text = models.TextField()
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True)
+
+
+class Follow(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='authors'
+    )
+    following = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='followers'
+    )
