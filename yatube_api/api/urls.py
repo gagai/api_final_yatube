@@ -10,7 +10,7 @@ router.register(prefix=r'posts/(?P<post_id>[0-9]+)/comments',
                 viewset=CommentViewSet,
                 basename='comment'
                 )
-router.register(prefix='follows', viewset=FollowsViewSet, basename='follow')
+router.register(prefix='follow', viewset=FollowsViewSet, basename='follow')
 
 urlpatterns = [
     path('v1/', include(router.urls)),
