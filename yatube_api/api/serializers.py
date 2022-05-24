@@ -34,6 +34,8 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class FollowSerializer(serializers.ModelSerializer):
+    authors = serializers.StringRelatedField(many=False)
+    followers = serializers.StringRelatedField(many=False)
 
     class Meta:
         model = Follow
