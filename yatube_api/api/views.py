@@ -38,3 +38,6 @@ class CommentViewSet(viewsets.ModelViewSet):
 class FollowsViewSet(viewsets.ModelViewSet):
     queryset = Follow.objects.all()
     serializer_class = FollowSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
