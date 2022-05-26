@@ -6,7 +6,7 @@ from .permissions import IsAuthorOrReadOnly
 from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,
                           PostSerializer)
 
-from posts.models import Comment, Group, Post, User
+from posts.models import Comment, Group, Post, Follow
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -51,9 +51,7 @@ class FollowsViewSet(mixins.ListModelMixin,
 
     def get_queryset(self):
         user = self.request.user
-        follows = (
-            User.objects.select_related('followers').filter(followers=user)
-        )
+        follows = Follow.objects.filter(user=user)
         return follows
 
     def perform_create(self, serializer):
