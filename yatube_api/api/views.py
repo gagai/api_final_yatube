@@ -51,7 +51,9 @@ class FollowsViewSet(mixins.ListModelMixin,
 
     def get_queryset(self):
         user = self.request.user
-        follows = User.objects.select_related('followers').filter(user=user)
+        follows = (
+            User.objects.select_related('followers').filter(followers=user)
+        )
         return follows
 
     def perform_create(self, serializer):
