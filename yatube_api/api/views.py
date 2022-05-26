@@ -1,10 +1,12 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets, permissions, pagination, filters, generics
-from posts.models import Post, Group, Comment, User
-from .serializers import (
-    PostSerializer, GroupSerializer, CommentSerializer, FollowSerializer
-)
+
+from rest_framework import filters, generics, pagination, permissions, viewsets
+
 from .permissions import IsAuthorOrReadOnly
+from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,
+                          PostSerializer)
+
+from posts.models import Comment, Group, Post, User
 
 
 class PostViewSet(viewsets.ModelViewSet):
