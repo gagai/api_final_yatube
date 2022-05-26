@@ -7,7 +7,7 @@ from .serializers import (
 from .permissions import IsAuthorOrReadOnly
 
 
-class PostViewSet(viewsets.ModelViewSet):
+class PostViewSet(viewsets.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = (IsAuthorOrReadOnly, )
