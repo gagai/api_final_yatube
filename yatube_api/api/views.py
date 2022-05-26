@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, permissions, pagination, filters
-from posts.models import Post, Group, Comment, Follow
+from posts.models import Post, Group, Comment, User
 from .serializers import (
     PostSerializer, GroupSerializer, CommentSerializer, FollowSerializer
 )
@@ -46,7 +46,7 @@ class FollowsViewSet(viewsets.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        follows = Follow.objects.filter(user=user)
+        follows = User.objects.select_related('followers').filter(user=user)
         return follows
 
     def perform_create(self, serializer):
