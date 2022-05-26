@@ -102,13 +102,26 @@ The REST API to the example app is described below.
 
 ## Other endpoints
 
-- For groups use same endpoints with post:
+- For groups use the same endpoints with post:
     
 `GET /groups/`
 
     http://127.0.0.1:8000/groups/
 
-- For comments use same endpoints with post, but URL should starts with ```/posts/{post_id}```
+---
+
+- For your subscribes use same endpoints with post:
+    
+`GET /groups/`
+
+    http://127.0.0.1:8000/follow/
+    
+You can use that endpoint with a 'search' parameter.
+Note that you need to be authorized to reach that endpoint. Also you are not able to watch other user's subscribers, except yours
+
+---
+
+- For comments use the same endpoints with post, but URL should starts with ```/posts/{post_id}```
 
 `GET /comments/`
 
