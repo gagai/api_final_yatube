@@ -42,10 +42,10 @@ class Comment(models.Model):
 
 class Follow(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='authors'
+        User, on_delete=models.CASCADE, related_name='followers'
     )
     following = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='followers'
+        User, on_delete=models.CASCADE, related_name='authors'
     )
 
     class Meta:
