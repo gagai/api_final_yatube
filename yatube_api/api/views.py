@@ -7,7 +7,7 @@ from .serializers import (
 from .permissions import IsAuthorOrReadOnly
 
 
-class PostViewSet(viewsets.ListCreateAPIView):
+class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = (IsAuthorOrReadOnly, )
@@ -38,7 +38,7 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user, post=post)
 
 
-class FollowsViewSet(viewsets.ModelViewSet):
+class FollowsViewSet(viewsets.ListCreateAPIView):
     serializer_class = FollowSerializer
     permission_classes = (permissions.IsAuthenticated,)
     filter_backends = [filters.SearchFilter]
