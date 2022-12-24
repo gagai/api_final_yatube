@@ -1,6 +1,6 @@
 # Yatube API
 
-This is an API for yet another one social media - Yatube
+This is an API for yet another one social media - Yatube. 
 Here you can create your own posts and comment posts of other users
 
 ## Install
