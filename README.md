@@ -102,7 +102,7 @@ The REST API to the example app is described below.
 
 ## Other endpoints
 
-- For groups use the same endpoints with post:
+- For groups use the same endpoints as with /post/:
     
 `GET /groups/`
 
@@ -110,7 +110,7 @@ The REST API to the example app is described below.
 
 ---
 
-- For your subscribes use same endpoints with post:
+- For your subscribes use same endpoints as with /post/:
     
 `GET /groups/`
 
@@ -121,7 +121,7 @@ Note that you need to be authorized to reach that endpoint. Also you are not abl
 
 ---
 
-- For comments use the same endpoints with post, but URL should starts with ```/posts/{post_id}```
+- For comments use the same endpoints with post, but URL should start with ```/posts/{post_id}```
 
 `GET /comments/`
 
